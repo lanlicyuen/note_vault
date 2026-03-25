@@ -41,6 +41,11 @@ final routerProvider = Provider<GoRouter>((ref) {
         builder: (context, state) => const HomeScreen(),
       ),
       GoRoute(
+        path: '/note/new',
+        name: 'note-new',
+        builder: (context, state) => const NoteEditScreen(noteId: null),
+      ),
+      GoRoute(
         path: '/note/:id',
         name: 'note-detail',
         builder: (context, state) {
@@ -55,11 +60,6 @@ final routerProvider = Provider<GoRouter>((ref) {
           final id = state.pathParameters['id']!;
           return NoteEditScreen(noteId: id);
         },
-      ),
-      GoRoute(
-        path: '/note/new',
-        name: 'note-new',
-        builder: (context, state) => const NoteEditScreen(noteId: null),
       ),
       GoRoute(
         path: '/vault',
